@@ -1,5 +1,5 @@
 // RobloRun: guarda el juego en el dispositivo para que funcione sin conexión.
-const VERSION = 'roblorun-v1';
+const VERSION = 'roblorun-v2';
 const APP = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'maskable-512.png', 'apple-touch-icon.png', 'favicon-32.png'];
 
 self.addEventListener('install', e => {

@@ -103,6 +103,46 @@ h2.big{font-family:var(--display);font-size:clamp(34px,8vw,54px);margin:0;line-h
 @media (max-width:480px){.card .nm{font-size:20px}.card .tg{font-size:11px}.play{font-size:26px;padding:8px 32px 12px}.sub{font-size:14px}}
 @media (max-height:520px){.panel{gap:8px;padding:12px 16px 14px}.logo{font-size:40px}.sub,.keys{display:none}.card{flex-direction:row;flex-wrap:wrap;justify-content:center;column-gap:8px;padding:6px 8px 8px}.card canvas{width:56px;max-width:56px}.card .nm{font-size:20px}.card .bs{margin-top:0}.play{font-size:24px;padding:6px 30px 10px}.pod canvas{max-width:64px}.pod .blockp{transform:scale(.8);transform-origin:bottom}.stat{padding:4px 10px;min-width:90px}.stat b{font-size:20px}h2.big{font-size:32px}}
 @media (prefers-reduced-motion:reduce){.card,.play,#toast{transition:none}}
+/* ---------- Portada ---------- */
+#landing{position:fixed;inset:0;z-index:20;overflow:hidden;background:#5ec2ff}
+#cover{position:absolute;inset:0;width:100%;height:100%;display:block}
+.l-ui{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 3vh) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 3.5vh) max(16px,env(safe-area-inset-left,0px));pointer-events:none;text-align:center}
+.l-top{display:flex;flex-direction:column;align-items:center;gap:1.2vh}
+.l-title{font-family:var(--display);font-size:clamp(56px,13vw,156px);line-height:.9;margin:0;display:flex;gap:.02em;letter-spacing:.01em}
+.l-title span{--c:#ff4b3e;--d:#a3231a;display:inline-block;color:var(--c);-webkit-text-stroke:.07em #1d2547;paint-order:stroke fill;
+  text-shadow:0 .02em 0 var(--d),0 .04em 0 var(--d),0 .06em 0 var(--d),0 .08em 0 var(--d),0 .1em 0 #1d2547,0 .16em .12em rgba(10,20,60,.45);
+  animation:lbob 2.4s ease-in-out infinite}
+.l-title span:nth-child(1){--c:#ff4b3e;--d:#a3231a;animation-delay:0s}
+.l-title span:nth-child(2){--c:#ffcf33;--d:#b88a00;animation-delay:.1s}
+.l-title span:nth-child(3){--c:#3a86ff;--d:#1d4fa8;animation-delay:.2s}
+.l-title span:nth-child(4){--c:#4fc24a;--d:#2b7a27;animation-delay:.3s}
+.l-title span:nth-child(5){--c:#ff8a1f;--d:#a8520a;animation-delay:.4s}
+.l-title span:nth-child(6){--c:#ff5fa2;--d:#a8285e;animation-delay:.5s}
+.l-title span:nth-child(7){--c:#ffcf33;--d:#b88a00;animation-delay:.6s}
+.l-title span:nth-child(8){--c:#a24dff;--d:#5e1fa8;animation-delay:.7s}
+.l-title span:nth-child(odd){rotate:-4deg}.l-title span:nth-child(even){rotate:3deg}
+@keyframes lbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-.08em)}}
+.l-tag{margin:0;font-family:var(--display);font-size:clamp(17px,2.6vw,28px);color:#fff;background:rgba(29,37,71,.72);padding:.25em .9em .32em;border-radius:12px;box-shadow:0 4px 0 rgba(10,15,40,.35);text-wrap:balance}
+.l-bottom{display:flex;flex-direction:column;align-items:center;gap:1.6vh}
+.l-play{pointer-events:auto;cursor:pointer;border:0;font-family:var(--display);font-size:clamp(34px,6vw,64px);letter-spacing:.04em;color:#fff;-webkit-text-stroke:.06em #1d2547;paint-order:stroke fill;text-shadow:0 .06em 0 #1d2547;
+  padding:.28em 1.3em .42em;border-radius:14px;position:relative;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 18%),
+    repeating-linear-gradient(90deg,transparent 0 .3em,rgba(0,0,0,.07) .3em .6em),
+    linear-gradient(180deg,#62d84e 0 36%,#3fae37 36% 44%,#9a6234 44%);
+  box-shadow:0 .14em 0 #5a3517,0 .14em 0 4px #1d2547,inset 0 0 0 4px #1d2547,0 .3em .5em rgba(10,20,60,.4);
+  animation:lpulse 1.6s ease-in-out infinite;transition:transform .12s}
+.l-play::before{content:"";position:absolute;left:4px;right:4px;top:36%;height:.32em;background:
+  repeating-linear-gradient(90deg,#3fae37 0 .28em,transparent .28em .56em,#3fae37 .56em .7em,transparent .7em 1.1em);pointer-events:none}
+.l-play span{position:relative}
+.l-play:hover{transform:translateY(-3px) scale(1.03)}
+.l-play:active{transform:translateY(4px);box-shadow:0 .04em 0 #5a3517,0 .04em 0 4px #1d2547,inset 0 0 0 4px #1d2547}
+.l-play:focus-visible{outline:4px solid #ffcf33;outline-offset:6px}
+@keyframes lpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+.l-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.l-chips span{background:rgba(255,255,255,.9);color:#1d2547;font-weight:900;font-size:clamp(12px,1.6vw,15px);padding:5px 12px;border-radius:999px;box-shadow:0 3px 0 rgba(10,15,40,.25)}
+@media (max-height:520px){.l-title{font-size:clamp(44px,9vw,90px)}.l-tag{font-size:16px}.l-play{font-size:30px}.l-chips{display:none}}
+@media (prefers-reduced-motion:reduce){.l-title span,.l-play{animation:none}}
 </style>
 </head>
 <body>
@@ -126,7 +166,21 @@ h2.big{font-family:var(--display);font-size:clamp(34px,8vw,54px);margin:0;line-h
 <div id="toast" role="status" aria-live="polite"></div>
 <div id="hint" hidden></div>
 
-<section class="screen" id="menu">
+<section id="landing" aria-label="Portada de RobloRun">
+  <canvas id="cover" aria-hidden="true"></canvas>
+  <div class="l-ui">
+    <div class="l-top">
+      <h1 class="l-title" aria-label="RobloRun"><span>R</span><span>o</span><span>b</span><span>l</span><span>o</span><span>R</span><span>u</span><span>n</span></h1>
+      <p class="l-tag">¡Corre, salta y gánales a tus amigos!</p>
+    </div>
+    <div class="l-bottom">
+      <button class="l-play" id="coverPlay"><span>¡CORRER!</span></button>
+      <div class="l-chips"><span>3 corredores</span><span>Monedas y power-ups</span><span>Juega sin internet</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="menu" hidden>
   <div class="panel">
     <h1 class="logo" aria-label="RobloRun"><span>R</span><span>o</span><span>b</span><span>l</span><span>o</span><span>R</span><span>u</span><span>n</span></h1>
     <p class="sub">Elige tu corredor y gánales a los otros dos. Cambia de carril, salta, agáchate y junta monedas.</p>
@@ -1183,6 +1237,169 @@ function frame(now) {
   requestAnimationFrame(frame);
 }
 buildCards(); paintMute();
+// ---------- Portada: mundo de bloques ----------
+const landingEl = document.getElementById('landing'), coverCv = document.getElementById('cover'), cx2 = coverCv.getContext('2d');
+let CW = 0, CH = 0, cDpr = 1, coverRaf = 0, coverT0 = performance.now();
+const TEX = (() => {
+  const mk = (fn) => { const c = document.createElement('canvas'); c.width = c.height = 16; const x = c.getContext('2d'); const r = mulberry(fn.length * 97 + 13); fn(x, r); return c; };
+  const px = (x, col, i, j) => { x.fillStyle = col; x.fillRect(i, j, 1, 1); };
+  const fill = (x, r, cols) => { for (let j = 0; j < 16; j++) for (let i = 0; i < 16; i++) px(x, cols[Math.floor(r() * cols.length)], i, j); };
+  const T = {};
+  T.grassTop = mk((x, r) => fill(x, r, ['#5fc444', '#56b83d', '#6bd24d', '#4faa38', '#62c947']));
+  T.grassSide = mk((x, r) => {
+    fill(x, r, ['#8c5a2e', '#7a4d26', '#9b6636', '#6e4421', '#a06c3b']);
+    for (let i = 0; i < 16; i++) { const d = 3 + Math.floor(r() * 3); for (let j = 0; j < d; j++) px(x, ['#5fc444', '#56b83d', '#4faa38'][Math.floor(r() * 3)], i, j); }
+  });
+  T.dirt = mk((x, r) => fill(x, r, ['#8c5a2e', '#7a4d26', '#9b6636', '#6e4421', '#a06c3b']));
+  T.stone = mk((x, r) => fill(x, r, ['#9a9a9a', '#8a8a8a', '#a8a8a8', '#7d7d7d']));
+  T.leaves = mk((x, r) => fill(x, r, ['#3f9e33', '#348a2a', '#4cb33e', '#2c7a23', '#56c247']));
+  T.blossom = mk((x, r) => fill(x, r, ['#ffb3d1', '#ff9cc4', '#ffc7dc', '#f487b5', '#ffd6e6']));
+  T.wood = mk((x, r) => { fill(x, r, ['#6b4a2b', '#5c3f24', '#7a5533']); for (let i = 1; i < 16; i += 4) for (let j = 0; j < 16; j++) px(x, '#4e341d', i, j); });
+  T.sand = mk((x, r) => fill(x, r, ['#f1e3a6', '#e8d895', '#f6ebb8', '#dfcf88']));
+  return T;
+})();
+function face(x, tex, a, b, c, d, e, f, shadeA) {
+  x.save(); x.setTransform(cDpr * a / 16, cDpr * b / 16, cDpr * c / 16, cDpr * d / 16, cDpr * e, cDpr * f);
+  x.drawImage(tex, 0, 0);
+  if (shadeA) { x.fillStyle = `rgba(0,0,0,${shadeA})`; x.fillRect(0, 0, 16, 16); }
+  x.restore();
+}
+// bloque con frente, tapa y costado derecho (proyección oblicua)
+function vblock(x, bx, by, s, front, top, showTop, showSide) {
+  const dx = s * 0.34, dy = -s * 0.34;
+  if (showSide) face(x, front, dx, dy, 0, s, bx + s, by, 0.28);
+  if (showTop) face(x, top, s, 0, dx, dy, bx, by, 0);
+  face(x, front, s, 0, 0, s, bx, by, 0);
+}
+let layers = [];
+function buildCover() {
+  const r = mulberry(2026);
+  const tall = CH / CW > 1.2;
+  const base = tall ? Math.max(30, Math.min(84, CW / 6.2)) : Math.max(30, Math.min(84, Math.min(CH / 9.5, CW / 9)));
+  const gf = tall ? [0.5, 0.64, 0.86] : [0.64, 0.76, 0.94];
+  layers = [
+    { s: base * 0.42, ground: CH * gf[0], haze: 0.42, amp: tall ? 9 : 5, rough: 0.35, seed: 3 },
+    { s: base * 0.66, ground: CH * gf[1], haze: 0.18, amp: tall ? 5 : 3, rough: 0.45, seed: 9 },
+    { s: base, ground: CH * gf[2], haze: 0, amp: 2, rough: 0.5, seed: 17 }
+  ].map(L => {
+    const rr2 = mulberry(L.seed), cols = Math.ceil(CW / L.s) + 3, h = [];
+    let v = 1 + Math.floor(rr2() * L.amp);
+    for (let i = 0; i < cols; i++) { if (rr2() < L.rough) v = Math.max(1, Math.min(L.amp + 1, v + (rr2() < 0.5 ? -1 : 1))); h.push(v); }
+    return { ...L, cols, h };
+  });
+  // la capa del frente queda plana en el centro para los personajes
+  const F = layers[2], mid = Math.floor(F.cols / 2);
+  for (let i = 0; i < F.cols; i++) if (Math.abs(i - mid) < Math.max(5, F.cols * 0.32)) F.h[i] = 2;
+  const M = layers[1];
+  M.blossom = Math.max(2, Math.floor(M.cols * 0.14)); M.oak = Math.min(M.cols - 3, Math.floor(M.cols * 0.84));
+  F.flowers = []; for (let i = 0; i < F.cols; i++) if (r() < 0.22) F.flowers.push({ i, c: r() < 0.6 ? '#ffd23f' : '#ff4b3e', o: r() });
+  petals = Array.from({ length: 26 }, () => ({ x: r(), y: r(), sp: 0.4 + r() * 0.6, ph: r() * 6 }));
+}
+let petals = [];
+const cloudsC = Array.from({ length: 7 }, (_, i) => ({ x: i / 7 + 0.05, y: 0.08 + (i * 37 % 10) / 40, w: 3 + (i % 3), sp: 0.006 + (i % 4) * 0.003 }));
+function resizeCover() {
+  cDpr = Math.min(2, window.devicePixelRatio || 1);
+  CW = innerWidth; CH = innerHeight;
+  coverCv.width = Math.round(CW * cDpr); coverCv.height = Math.round(CH * cDpr);
+  cx2.imageSmoothingEnabled = false;
+  buildCover();
+}
+function drawLayer(x, L) {
+  const { s, ground } = L;
+  for (let i = 0; i < L.cols; i++) {
+    const h = L.h[i], bx = (i - 1) * s;
+    for (let k = 0; k < h + 3; k++) {
+      const by = ground - (k + 1) * s + 3 * s;
+      const isTop = k === h + 2, front = isTop ? TEX.grassSide : (k > h - 1 ? TEX.dirt : (k < 1 ? TEX.stone : TEX.dirt));
+      const rightH = (L.h[i + 1] || 0) + 2;
+      vblock(x, bx, by, s, front, TEX.grassTop, isTop, k > rightH);
+    }
+  }
+}
+function treeAt(x, L, i, kind) {
+  const s = L.s, bx = (i - 1) * s, topY = L.ground - (L.h[i] + 3) * s + 3 * s;
+  for (let k = 1; k <= 3; k++) vblock(x, bx, topY - k * s, s, TEX.wood, TEX.wood, false, true);
+  const tex = kind === 'blossom' ? TEX.blossom : TEX.leaves;
+  const blob = kind === 'blossom'
+    ? [[-2, 4], [-1, 4], [0, 4], [1, 4], [2, 4], [-2, 5], [-1, 5], [0, 5], [1, 5], [2, 5], [-1, 6], [0, 6], [1, 6], [-3, 4], [3, 4], [0, 7]]
+    : [[-1, 4], [0, 4], [1, 4], [-2, 4], [2, 4], [-1, 5], [0, 5], [1, 5], [0, 6]];
+  blob.sort((a, b) => a[1] - b[1] || a[0] - b[0]);
+  const has = (u, v) => blob.some(p => p[0] === u && p[1] === v);
+  for (const [u, v] of blob) vblock(x, bx + u * s, topY - v * s, s, tex, tex, !has(u, v + 1), !has(u + 1, v));
+}
+function flower(x, fx, fy, s, col, t, o) {
+  const p = s / 8, sw = Math.sin(t * 2 + o * 6) * p * 0.5;
+  x.fillStyle = '#2f8a2a'; x.fillRect(fx - p * 0.5 + sw * 0.3, fy - p * 3, p, p * 3);
+  x.fillStyle = col; x.fillRect(fx - p * 1.5 + sw, fy - p * 5, p * 3, p * 2); x.fillRect(fx - p * 0.5 + sw, fy - p * 6, p, p * 4);
+  x.fillStyle = '#fff7c2'; x.fillRect(fx - p * 0.5 + sw, fy - p * 5, p, p);
+}
+function drawCover(now) {
+  const t = (now - coverT0) / 1000, x = cx2;
+  x.setTransform(cDpr, 0, 0, cDpr, 0, 0);
+  // cielo
+  const g = x.createLinearGradient(0, 0, 0, CH); g.addColorStop(0, '#3aa8ff'); g.addColorStop(0.55, '#8fd6ff'); g.addColorStop(1, '#d6f3ff');
+  x.fillStyle = g; x.fillRect(0, 0, CW, CH);
+  // sol cuadrado con halo
+  const sun = Math.max(40, Math.min(CW, CH) * 0.09), sx = CW * 0.86, sy = CH * 0.16;
+  x.fillStyle = 'rgba(255,240,150,.35)'; x.fillRect(sx - sun * 0.9, sy - sun * 0.9, sun * 1.8, sun * 1.8);
+  x.fillStyle = '#ffe14d'; x.fillRect(sx - sun / 2, sy - sun / 2, sun, sun);
+  x.fillStyle = '#fff3a0'; x.fillRect(sx - sun / 2, sy - sun / 2, sun, sun * 0.25);
+  // nubes de bloques
+  const cb = Math.max(14, CH / 34);
+  for (const c of cloudsC) {
+    const cx = ((c.x + t * c.sp) % 1.3) * CW * 1.1 - CW * 0.15, cy = c.y * CH;
+    x.fillStyle = 'rgba(255,255,255,.96)'; x.fillRect(cx, cy, c.w * cb * 2, cb);
+    x.fillRect(cx + cb, cy - cb, c.w * cb, cb);
+    x.fillStyle = 'rgba(200,225,245,.9)'; x.fillRect(cx, cy + cb, c.w * cb * 2, cb * 0.35);
+  }
+  // capas de terreno
+  layers.forEach((L, li) => {
+    drawLayer(x, L);
+    if (li === 1) { treeAt(x, L, L.blossom, 'blossom'); treeAt(x, L, L.oak, 'oak'); }
+    if (L.haze) { x.fillStyle = `rgba(190,230,255,${L.haze})`; x.fillRect(0, 0, CW, CH); }
+  });
+  const F = layers[2], topF = F.ground - (2 + 3) * F.s + 3 * F.s;
+  for (const fl of F.flowers) { const i = fl.i; if (F.h[i] !== 2) continue; flower(x, (i - 1) * F.s + F.s * (0.3 + fl.o * 0.4), topF - F.s * 0.12, F.s, fl.c, t, fl.o); }
+  // pétalos que caen del árbol rosado
+  const M = layers[1], bx = (M.blossom - 1) * M.s;
+  for (const p of petals) {
+    const life = (t * p.sp * 0.12 + p.y) % 1, px = bx + (p.x - 0.3) * M.s * 9 + Math.sin(t * 2 + p.ph) * M.s * 0.6 + life * CW * 0.25;
+    const py = M.ground - 7 * M.s + life * CH * 0.5, s = Math.max(3, M.s * 0.14);
+    x.fillStyle = 'rgba(255,170,205,' + (1 - life * 0.6) + ')'; x.fillRect(px, py, s, s);
+  }
+  // personajes en primer plano
+  const u = Math.max(9, Math.min(CH * 0.052, CW * (CH / CW > 1.2 ? 0.082 : 0.06))), gy = topF - F.s * 0.16;
+  const sh = (cx) => { x.fillStyle = 'rgba(0,0,0,.2)'; x.beginPath(); x.ellipse(cx, gy + 2, u * 1.9, u * 0.42, 0, 0, Math.PI * 2); x.fill(); };
+  const lx = CW * 0.5 - Math.min(CW * 0.26, u * 7.2), rx = CW * 0.5 + Math.min(CW * 0.26, u * 7.2);
+  const hopL = Math.abs(Math.sin(t * 3.2)) * u * 1.4, hopR = Math.abs(Math.sin(t * 3.2 + 1.6)) * u * 1.8;
+  sh(lx); sh(CW * 0.5); sh(rx);
+  drawChar(x, 'luna', lx, gy - hopL, u * 0.92, { mode: hopL > u * 0.2 ? 'jump' : 'run', ph: t * 10, t });
+  drawChar(x, 'pipo', rx, gy - hopR, u * 0.92, { mode: 'jump', t });
+  drawChar(x, 'max', CW * 0.5, gy, u * 1.1, { mode: 'run', ph: t * 11, t });
+  // monedas flotando
+  for (let k = 0; k < 7; k++) {
+    const a = k / 7 * Math.PI * 2 + t * 0.5, cxk = CW * 0.5 + Math.cos(a) * Math.min(CW * 0.42, u * 16), cyk = Math.max(CH * 0.36, gy - u * 8.2 + Math.sin(a * 2) * u * 0.9 + Math.sin(t * 3 + k) * u * 0.4);
+    const r2 = u * 0.75, sc = Math.abs(Math.cos(t * 4 + k));
+    x.save(); x.translate(cxk, cyk); x.scale(Math.max(0.15, sc), 1);
+    x.fillStyle = '#c27a00'; x.fillRect(-r2, -r2, r2 * 2, r2 * 2);
+    x.fillStyle = '#ffc21a'; x.fillRect(-r2 * 0.8, -r2 * 0.8, r2 * 1.6, r2 * 1.6);
+    x.fillStyle = '#ffe27a'; x.fillRect(-r2 * 0.4, -r2 * 0.55, r2 * 0.8, r2 * 1.1);
+    x.fillStyle = '#fff'; x.fillRect(-r2 * 0.65, -r2 * 0.65, r2 * 0.3, r2 * 0.3);
+    x.restore();
+  }
+}
+function coverLoop(now) { if (landingEl.hidden) { coverRaf = 0; return; } drawCover(now); coverRaf = reduceMotion ? 0 : requestAnimationFrame(coverLoop); }
+function showLanding() { landingEl.hidden = false; menu.hidden = true; resizeCover(); if (!coverRaf) coverRaf = requestAnimationFrame(coverLoop); }
+function openMenu() {
+  initAudio();
+  if (AC) { const tt = AC.currentTime; [67, 72, 76, 79].forEach((n, i) => tone(midi(n), 0.12, 'square', 0.07, 0, tt + i * 0.06)); }
+  landingEl.hidden = true; menu.hidden = false; state = 'menu'; buildCards();
+  const first = document.getElementById('card-' + sel); if (first) first.focus();
+}
+$('coverPlay').addEventListener('click', openMenu);
+addEventListener('keydown', e => { if (!landingEl.hidden) { if (e.code === 'Enter' || e.code === 'Space') { e.preventDefault(); openMenu(); } e.stopImmediatePropagation(); } }, true);
+addEventListener('resize', () => { if (!landingEl.hidden) { resizeCover(); if (reduceMotion) drawCover(performance.now()); } });
+showLanding();
 requestAnimationFrame(frame);
 })();
 </script>
